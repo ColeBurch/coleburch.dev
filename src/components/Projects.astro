@@ -23,19 +23,22 @@ const projects = await getCollection('projects', ({ data }:any) => {
 					title={project.data.title}
 					description={project.data.description}
 					alt={project.data.img_alt}
+                    live={project.data.live}
+                    github={project.data.github}
 					tags={project.data.tags}
+                    appImages={project.data.appImages}
 				/>
 			))
 		}
 	</div>
 	<a
-		href="https://github.com/"
+		href="https://github.com/coleburch"
 		target="_blank"
 		rel="noopener"
 		class="flex flex-row text-black hover:text-orange dark:text-white dark:hover:text-orange"
 		aria-label="link to repository"
 	>
-		View full private projects archive
+		View my GitHub with more projects
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			fill="none"

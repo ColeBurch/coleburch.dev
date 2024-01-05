@@ -21,7 +21,7 @@ import Layout from '../../layouts/layout.astro';
                         {entry.data.title}
                     </h1>
                 </div>
-                <div class="font-general text-body-1">
+                <div id="about" data-testid="about" class="font-general text-body-1">
                     <Content />
                 </div>
             </div>
@@ -33,6 +33,35 @@ import Layout from '../../layouts/layout.astro';
                     class="h-72 w-auto rounded-lg"
                 />
             </div>
+        </div>
+        <div class="text-center mt-24 text-body-3 w-full">View the live project and GitHub repository here:</div>
+        <div class="flex items-center justify-center mt-4">
+            <a
+                href={entry.data.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 rounded mr-4"
+            >
+                Live
+            </a>
+            <a
+                href={entry.data.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-primary-500 hover:bg-primary-600 text-white font-bold py-2 px-4 rounded"
+            >
+                GitHub
+            </a>
+        </div>
+        <div class="flex flex-col items-center justify-center mt-4 space-y-4">
+            {entry.data.appImages.map((image) => (
+                <img
+                    src={image}
+                    alt= "app image"
+                    loading="lazy"
+                    class="w-full h-auto rounded-lg mr-4"
+                />
+            ))}
         </div>
     </main>
 </Layout>
