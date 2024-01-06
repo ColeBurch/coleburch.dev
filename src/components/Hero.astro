@@ -1,5 +1,4 @@
 ---
-import heroImage from '../images/HeroImage.jpg'
 import Button from './ui/Button.astro';
 import { Image } from 'astro:assets';
 ---
@@ -19,8 +18,8 @@ import { Image } from 'astro:assets';
 		</div>
 	</div>
 	<div data-testid="hero-img" class="mb-10 flex lg:w-1/2 lg:mb-0 items-center justify-center">
-		<Image
-			src={heroImage}
+		<img
+			src="/HeroImage.jpg"
 			alt="Hero Image"
 			loading="lazy"
             class="rounded-full h-96 w-96"
