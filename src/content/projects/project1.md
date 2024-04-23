@@ -4,7 +4,7 @@ image: { src: "/OdinInventoryHome.png", alt: "Application Image" }
 title: Ecommerce Inventory Manager
 description:
   {
-    short: "Manage you ecommerce inventory with style.",
+    short: "An intuitive, ecommerce style approach to managing inventory.",
     long: "Project 1 long description",
   }
 img_alt: project image alt text
