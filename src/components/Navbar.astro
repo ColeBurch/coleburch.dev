@@ -1,59 +1,74 @@
 ---
-import ToggleTheme from './ui/ToggleTheme.astro';
-import { Astronav, MenuIcon, MenuItems } from 'astro-navbar';
+import ToggleTheme from "./ui/ToggleTheme.astro";
+import { Astronav, MenuIcon, MenuItems } from "astro-navbar";
 
 const menuitems = [
-	{
-		title: 'About',
-		path: '/#about',
-	},
-	{
-		title: 'Projects',
-		path: '/#projects',
-	},
-	{
-		title: 'Contact',
-		path: '/#contact',
-	},
+    {
+        title: "About",
+        path: "/#about",
+    },
+    {
+        title: "Work",
+        path: "/#freelance",
+    },
+    {
+        title: "Projects",
+        path: "/#projects",
+    },
+    {
+        title: "Contact",
+        path: "/#contact",
+    },
 ];
 ---
 
-<header data-testId="header" class="my-5 flex flex-col items-center justify-between lg:flex-row">
-	<Astronav>
-		<div class="flex w-full items-center justify-between lg:w-auto space-x-3">
+<header
+    data-testId="header"
+    class="my-5 flex flex-col items-center justify-between lg:flex-row"
+>
+    <Astronav>
+        <div
+            class="flex w-full items-center justify-between lg:w-auto space-x-3"
+        >
             <div class="flex items-center space-x-2">
-            <img
-                src="/logo.svg"
-                alt="logo"
-                class="w-8 h-8"
-                style="filter: invert(61%) sepia(8%) saturate(790%) hue-rotate(21deg) brightness(89%) contrast(86%)"/>
-            <a href="/" class="text-works-title font-general text-black dark:text-white">
-                Cole Burch
-            </a>
+                <img
+                    src="/logo.svg"
+                    alt="logo"
+                    class="w-8 h-8"
+                    style="filter: invert(61%) sepia(8%) saturate(790%) hue-rotate(21deg) brightness(89%) contrast(86%)"
+                />
+                <a
+                    href="/"
+                    class="text-works-title font-general text-black dark:text-white"
+                >
+                    Cole Burch
+                </a>
             </div>
-			<div class="block lg:hidden">
-				<MenuIcon class="h-4 w-4 text-secondary-300 dark:text-primary-200" />
-			</div>
-		</div>
-		<MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
-			<ul class="flex flex-col items-center lg:flex-row lg:gap-4">
-				{
-					menuitems.map((item) => (
-						<>
-							<li>
-								<a
-									aria-label="navigation link"
-									href={item.path}
-									class="flex py-2 text-secondary-300 hover:text-secondary-600 dark:text-primary-200 dark:hover:text-accent-300 lg:text-works-title"
-								>
-									{item.title}
-								</a>
-							</li>
-						</>
-					))
-				}
-				<li><ToggleTheme /></li>
-			</ul>
-		</MenuItems>
-	</Astronav>
+            <div class="block lg:hidden">
+                <MenuIcon
+                    class="h-4 w-4 text-secondary-300 dark:text-primary-200"
+                />
+            </div>
+        </div>
+        <MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
+            <ul class="flex flex-col items-center lg:flex-row lg:gap-4">
+                {
+                    menuitems.map((item) => (
+                        <>
+                            <li>
+                                <a
+                                    aria-label="navigation link"
+                                    href={item.path}
+                                    class="flex py-2 text-secondary-300 hover:text-secondary-600 dark:text-primary-200 dark:hover:text-accent-300 lg:text-works-title"
+                                >
+                                    {item.title}
+                                </a>
+                            </li>
+                        </>
+                    ))
+                }
+                <li><ToggleTheme /></li>
+            </ul>
+        </MenuItems>
+    </Astronav>
 </header>
