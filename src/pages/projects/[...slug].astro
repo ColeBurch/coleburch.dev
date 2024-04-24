@@ -1,31 +1,43 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 export async function getStaticPaths() {
-  const projectEntries = await getCollection('projects');
-  return projectEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
-  }));
+    const projectEntries = await getCollection("projects");
+    return projectEntries.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
 }
 // 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props;
 const { Content } = await entry.render();
-import Layout from '../../layouts/Layout.astro';
+import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout>
     <main class="dark:text-primary-200 text-secondary-300">
-        <div class="flex h-auto flex-col-reverse items-center justify-center text-center lg:flex-row w-full lg:mt-24">
+        <div
+            class="flex h-auto flex-col-reverse items-center justify-center text-center lg:flex-row w-full lg:mt-24"
+        >
             <div class="mb-10 flex flex-col items-center lg:mb-0 lg:w-1/2">
                 <div>
-                    <h1 class="mb-10 font-general text-black dark:text-white text-heading-5 pl-4 pr-4">
+                    <h1
+                        class="mb-10 font-general text-black dark:text-white text-heading-5 pl-4 pr-4"
+                    >
                         {entry.data.title}
                     </h1>
                 </div>
-                <div id="about" data-testid="about" class="font-general text-body-1">
+                <div
+                    id="about"
+                    data-testid="about"
+                    class="font-general text-body-1"
+                >
                     <Content />
                 </div>
             </div>
-            <div data-testid="hero-img" class="mb-10 flex lg:w-1/2 lg:mb-0 items-center justify-center">
+            <div
+                data-testid="hero-img"
+                class="mb-10 flex lg:w-1/2 lg:mb-0 items-center justify-center"
+            >
                 <img
                     src={entry.data.image.src}
                     alt={entry.data.image.alt}
@@ -34,7 +46,9 @@ import Layout from '../../layouts/Layout.astro';
                 />
             </div>
         </div>
-        <div class="text-center mt-24 text-body-3 w-full">View the live project and GitHub repository here:</div>
+        <div class="text-center mt-24 text-body-3 w-full">
+            View the live project and GitHub repository here:
+        </div>
         <div class="flex items-center justify-center mt-4">
             <a
                 href={entry.data.live}
@@ -54,14 +68,16 @@ import Layout from '../../layouts/Layout.astro';
             </a>
         </div>
         <div class="flex flex-col items-center justify-center mt-4 space-y-4">
-            {entry.data.appImages.map((image) => (
-                <img
-                    src={image}
-                    alt= "app image"
-                    loading="lazy"
-                    class="w-full h-auto rounded-lg mr-4"
-                />
-            ))}
+            {
+                entry.data.appImages.map((image) => (
+                    <img
+                        src={image}
+                        alt="app image"
+                        loading="lazy"
+                        class="w-full h-auto rounded-lg mr-4"
+                    />
+                ))
+            }
         </div>
     </main>
 </Layout>
