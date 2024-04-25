@@ -15,4 +15,4 @@ tags: ["Javascript", "Chrome Extension", "Regex"]
 appImages: []
 ---
 
-A google chrome extension to assist in ad building. This extension allows users to quickly grab the post ID of a facebook post to use in the facebook ad manager. This extension is built using javascript and regex to parse the page scripts and extract the post ID. The extension is available on the chrome web store and is used regularly by two people at the marketing agency I created it for.
+A google chrome extension to assist in ad building. This extension allows users to quickly grab the post ID of a facebook post to use in the facebook ad manager. This extension is built using javascript and regex to parse the page scripts and extract the post ID. The extension is available on the chrome web store and is used regularly by three people at the marketing agency I created it for.
