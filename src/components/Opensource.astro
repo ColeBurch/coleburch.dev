@@ -1,0 +1,36 @@
+---
+import Card from "./ui/card.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("opensource", ({ data }: any) => {
+    return !data.inProgress;
+});
+---
+
+<section
+    data-testid="opensource"
+    id="opensource"
+    class="mb-10 flex flex-col items-center justify-center md:mb-0 md:h-screen"
+>
+    <h2 class="font-general text-black dark:text-primary-400 text-heading-4">
+        Open-Source Contributions
+    </h2>
+    <span class="mb-10 h-1 w-10 bg-orange"></span>
+    <div class="mb-10 flex w-full flex-col flex-wrap items-center md:flex-row">
+        {
+            projects.map((project: any) => (
+                <Card
+                    url={project.data.link}
+                    image={project.data.image}
+                    title={project.data.title}
+                    description={project.data.description}
+                    alt={project.data.img_alt}
+                    live={project.data.live}
+                    github={project.data.github}
+                    tags={project.data.tags}
+                    appImages={project.data.appImages}
+                />
+            ))
+        }
+    </div>
+</section>
